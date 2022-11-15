@@ -5,12 +5,8 @@
     "summary": """
         Add support of markdown content into an Odoo widget form.
     """,
-    "description": """
-        Allow the use of the widget markdown to display markdown content into Odoo views 
-        in render mode and a markdown Editor in edit mode thanks to SimpleMDE Javascript library
-    """,
     "author": "Coding Dodo",
-    "website": "https://codingdodo.com",
+    "website": "https://github.com/Coding-Dodo/web",
     "category": "web",
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
@@ -26,6 +22,7 @@
             "/web_widget_markdown/static/src/xml/qweb_template.xml",
         ],
     },
+    "external_dependencies": {"python": ["markdown"]},
     "auto_install": False,
     "installable": True,
 }

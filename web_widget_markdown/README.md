@@ -1,9 +1,10 @@
 # Odoo 14.0 web widget Markdown
 
-This widget add a markdown Editor to Text field. In Edit mode the Editor is fuly usable
-and in readonly mode the widget shows a naive transformation of markdown to HTML as a preview.
+This widget add a markdown Editor to Text field. In Edit mode the Editor is fuly usable and in readonly mode
+the widget shows a naive transformation of markdown to HTML as a preview.
 
-This module uses the JavaScript library [SimpleMDE](https://simplemde.com/) as a Markdown Editor for the client.
+This module uses the JavaScript library [SimpleMDE](https://simplemde.com/) as a Markdown Editor for the
+client.
 
 And the python [Markdown library](https://github.com/Python-Markdown/markdown) for backend usage.
 
@@ -11,7 +12,8 @@ And the python [Markdown library](https://github.com/Python-Markdown/markdown) f
 pip install markdown
 ```
 
-This is also the source code for the [the article written on codingdodo.com](https://codingdodo.com) about Test Driven Developement in Odoo 14 JavaScript.
+This is also the source code for the [the article written on codingdodo.com](https://codingdodo.com) about
+Test Driven Developement in Odoo 14 JavaScript.
 
 ## Usage
 
@@ -31,19 +33,23 @@ In your xml view, add `widget="markdown"` to any Text field.
 
 ### Options
 
-In the options attribute, pass any options of [SimpleMDE](https://github.com/sparksuite/simplemde-markdown-editor#configuration) configuration.
+In the options attribute, pass any options of
+[SimpleMDE](https://github.com/sparksuite/simplemde-markdown-editor#configuration) configuration.
 
 ## Usage in report / Website templates
 
-There is also a t-options widget markdown available for usage in PDF reports (rendered server side in python)
+There is also a t-options widget markdown available for usage in PDF reports (rendered server side in
+python)
 
 ```xml
-<div t-raw="o.content" t-options="{'widget': 'markdown'}"></div>
+<div t-raw="o.content" t-options="{'widget': 'markdown'}" />
 ```
 
 ## Bug Tracker
 
-Bugs are tracked on [GitHub Issues](https://github.com/Coding-Dodo/web_widget_markdown/issues). In case of trouble, please check there if your issue has already been reported. If you spotted it first, help us smashing it by providing a detailed and welcomed feedback.
+Bugs are tracked on [GitHub Issues](https://github.com/Coding-Dodo/web_widget_markdown/issues). In case of
+trouble, please check there if your issue has already been reported. If you spotted it first, help us
+smashing it by providing a detailed and welcomed feedback.
 
 Do not contact contributors directly about support or help with technical issues.
 

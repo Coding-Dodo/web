@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 import markdown
 
-from odoo import api, models, _
+from odoo import api, models
 
 
 class MarkdownConverter(models.AbstractModel):
