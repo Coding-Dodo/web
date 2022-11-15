@@ -1,1 +1,3 @@
 # web
+
+Odoo web addons
