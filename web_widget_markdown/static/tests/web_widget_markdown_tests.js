@@ -1,5 +1,4 @@
 odoo.define("web_widget_markdown_tests", function (require) {
-    "use strict";
     var FormView = require("web.FormView");
     var testUtils = require("web.test_utils");
     var core = require("web.core");
