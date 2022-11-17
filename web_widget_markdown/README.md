@@ -1,4 +1,4 @@
-# Odoo 14.0 web widget Markdown
+# Odoo 16.0 web widget Markdown
 
 This widget add a markdown Editor to Text field. In Edit mode the Editor is fuly usable and in readonly mode
 the widget shows a naive transformation of markdown to HTML as a preview.
@@ -13,7 +13,7 @@ pip install markdown
 ```
 
 This is also the source code for the [the article written on codingdodo.com](https://codingdodo.com) about
-Test Driven Developement in Odoo 14 JavaScript.
+creating Field Widgets for Odoo 16 in OWL.
 
 ## Usage
 
