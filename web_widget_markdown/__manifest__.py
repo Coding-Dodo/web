@@ -15,7 +15,8 @@
     "qweb": [],
     "assets": {
         "web.assets_backend": [
-            "/web_widget_markdown/static/src/js/field_widget.js",
+            "/web_widget_markdown/static/src/js/markdown_field.js",
+            "/web_widget_markdown/static/src/js/markdown_field.xml",
             "/web_widget_markdown/static/lib/simplemde.min.css",
         ],
         "web.assets_qweb": [
