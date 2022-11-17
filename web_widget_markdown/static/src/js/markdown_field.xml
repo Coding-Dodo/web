@@ -7,15 +7,15 @@
         </t>
         <t t-else="">
             <textarea t-ref="textarea" class="o_codeview" t-att-value="props.value"/>
-            <!-- <t t-if="props.isTranslatable">
-                <span t-attf-style="font-size: 15px; position: absolute; right: {{this.props.codeview ? '40px' : '5px'}}; top: 5px;">
+            <t t-if="props.isTranslatable">
+                <span style="font-size: 15px; position: absolute; left: 22px; bottom: 5px;">
                     <TranslationButton
                         fieldName="props.name"
                         record="props.record"
                         updateField="props.update"
                     />
                 </span>
-            </t> -->
+            </t>
         </t>
     </t>
 
