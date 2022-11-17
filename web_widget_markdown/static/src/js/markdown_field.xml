@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="web_widget_markdown.MarkdownField" owl="1">
+        <t t-if="props.readonly || props.notEditable">
+            <div t-ref="readonlyElement" class="o_readonly" t-out="markupValue" />
+        </t>
+        <t t-else="">
+            <textarea t-ref="textarea" class="o_codeview" t-att-value="props.value"/>
+            <t t-if="props.isTranslatable">
+                <span style="font-size: 15px; position: absolute; left: 22px; bottom: 5px;">
+                    <TranslationButton
+                        fieldName="props.name"
+                        record="props.record"
+                        updateField="props.update"
+                    />
+                </span>
+            </t>
+        </t>
+    </t>
+
+</templates>
