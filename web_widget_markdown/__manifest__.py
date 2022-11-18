@@ -22,6 +22,10 @@
         "web.assets_qweb": [
             "/web_widget_markdown/static/src/xml/qweb_template.xml",
         ],
+        "web.qunit_suite_tests": [
+            "/web_widget_markdown/static/lib/simplemde.min.js",
+            "/web_widget_markdown/static/tests/**/*",
+        ],
     },
     "external_dependencies": {"python": ["markdown"]},
     "auto_install": False,
