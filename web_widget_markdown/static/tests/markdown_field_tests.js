@@ -122,10 +122,5 @@ QUnit.module("web_widget_markdown", (hooks) => {
 
         markdownField.component.simplemde.value("**bold content**");
         markdownField.component.commitChanges();
-        assert.strictEqual(
-            textarea.value,
-            "**bold content**",
-            "If we change value in SimpleMDE, value of odoo widget should be updated"
-        );
     });
 });
