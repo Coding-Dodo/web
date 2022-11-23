@@ -1,11 +1,11 @@
 /** @odoo-module **/
-const { useRef, onMounted, onWillStart, markup, Component, onWillUpdateProps } = owl;
-import { registry } from "@web/core/registry";
-import { standardFieldProps } from "@web/views/fields/standard_field_props";
-import { loadJS } from "@web/core/assets";
-import { useBus } from "@web/core/utils/hooks";
-import { debounce } from "@web/core/utils/timing";
-import { TranslationButton } from "@web/views/fields/translation_button";
+const {useRef, onMounted, onWillStart, markup, Component, onWillUpdateProps} = owl;
+import {registry} from "@web/core/registry";
+import {standardFieldProps} from "@web/views/fields/standard_field_props";
+import {loadJS} from "@web/core/assets";
+import {useBus} from "@web/core/utils/hooks";
+import {debounce} from "@web/core/utils/timing";
+import {TranslationButton} from "@web/views/fields/translation_button";
 
 export class MarkdownField extends Component {
     setup() {
@@ -21,9 +21,9 @@ export class MarkdownField extends Component {
         });
 
         useBus(this.env.bus, "RELATIONAL_MODEL:WILL_SAVE_URGENTLY", () =>
-            this.commitChanges({ urgent: true })
+            this.commitChanges({urgent: true})
         );
-        useBus(this.env.bus, "RELATIONAL_MODEL:NEED_LOCAL_CHANGES", ({ detail }) =>
+        useBus(this.env.bus, "RELATIONAL_MODEL:NEED_LOCAL_CHANGES", ({detail}) =>
             detail.proms.push(this.commitChanges())
         );
 
@@ -40,11 +40,11 @@ export class MarkdownField extends Component {
     _startSimpleMDE(initValue) {
         var simplemdeConfig = {
             element: this.textareaRef.el,
-            initialValue: initValue ? this.props.value : "",
+            initialValue: initValue ?? this.props.value,
             uniqueId: `markdown-${this.props.id}`,
         };
         if (this.props.editorOptions) {
-            simplemdeConfig = { ...simplemdeConfig, ...this.props.editorOptions };
+            simplemdeConfig = {...simplemdeConfig, ...this.props.editorOptions};
         }
         this.simplemde = new SimpleMDE(simplemdeConfig);
         this.simplemde.codemirror.on("blur", this.commitChanges.bind(this));
@@ -76,7 +76,7 @@ export class MarkdownField extends Component {
      * @returns {Promise}
      *
      */
-    async commitChanges({ urgent = false } = {}) {
+    async commitChanges({urgent = false} = {}) {
         if (this._isDirty() || urgent) {
             await this.updateValue();
         }
@@ -101,12 +101,12 @@ export class MarkdownField extends Component {
 MarkdownField.template = "web_widget_markdown.MarkdownField";
 MarkdownField.props = {
     ...standardFieldProps,
-    isTranslatable: { type: Boolean, optional: true },
-    placeholder: { type: String, optional: true },
-    fieldName: { type: String, optional: true },
-    editorOptions: { type: Object, optional: true },
+    isTranslatable: {type: Boolean, optional: true},
+    placeholder: {type: String, optional: true},
+    fieldName: {type: String, optional: true},
+    editorOptions: {type: Object, optional: true},
 };
-MarkdownField.extractProps = ({ attrs, field }) => {
+MarkdownField.extractProps = ({attrs, field}) => {
     return {
         isTranslatable: field.translate,
         fieldName: field.name,
