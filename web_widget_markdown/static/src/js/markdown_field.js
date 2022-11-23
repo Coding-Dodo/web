@@ -1,10 +1,10 @@
 /** @odoo-module **/
 const {useRef, onMounted, onWillStart, markup, Component, onWillUpdateProps} = owl;
-import {registry} from "@web/core/registry";
-import {standardFieldProps} from "@web/views/fields/standard_field_props";
 import {loadJS} from "@web/core/assets";
+import {registry} from "@web/core/registry";
 import {useBus} from "@web/core/utils/hooks";
 import {debounce} from "@web/core/utils/timing";
+import {standardFieldProps} from "@web/views/fields/standard_field_props";
 import {TranslationButton} from "@web/views/fields/translation_button";
 
 export class MarkdownField extends Component {
@@ -28,14 +28,14 @@ export class MarkdownField extends Component {
         );
 
         onWillUpdateProps((newProps) => {
-            if (newProps.readonly != this.props.readonly && !newProps.readonly) {
+            if (newProps.readonly !== this.props.readonly && !newProps.readonly) {
                 this._startSimpleMDE(newProps.value);
             }
         });
     }
 
     /**
-     * @param {string} [initValue]
+     * @param {String} [initValue]
      */
     _startSimpleMDE(initValue) {
         var simplemdeConfig = {
@@ -59,14 +59,14 @@ export class MarkdownField extends Component {
     getEditorValue() {
         if (this.simplemde) {
             return this.simplemde.value();
-        } else {
-            return null;
         }
+        return null;
     }
 
     /**
      * Checks if the current value is different from the last saved value.
      * If the field is dirty it needs to be saved.
+     * @returns {Boolean}
      */
     _isDirty() {
         return !this.props.readonly && this.props.value !== this.getEditorValue();
