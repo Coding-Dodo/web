@@ -1,0 +1,9 @@
+{
+    "tabWidth": 4,
+    "semi": true,
+    "singleQuote": false,
+    "printWidth": 108,
+    "endOfLine": "auto",
+    "trailingComma": "es5",
+    "xmlWhitespaceSensitivity": "strict"
+  }
