@@ -1,5 +1,5 @@
 /** @odoo-module **/
-const {useRef, onMounted, onWillStart, markup, Component, onWillUpdateProps} = owl;
+import {useRef, onMounted, onWillStart, markup, Component, onWillUpdateProps} from "@odoo/owl";
 import {loadJS} from "@web/core/assets";
 import {registry} from "@web/core/registry";
 import {useBus} from "@web/core/utils/hooks";
