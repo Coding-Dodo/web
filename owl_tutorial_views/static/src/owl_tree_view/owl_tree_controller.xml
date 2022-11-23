@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="owl_tutorial_views.View" owl="1">
+        <Layout display="props.display" className="'h-100 overflow-auto'">
+            <t
+                t-component="props.Renderer"
+                countField="props.archInfo.countField"
+                onTreeItemClicked="_onTreeItemClicked.bind(this)" onChangeItemTree="_onChangeItemTree.bind(this)"
+                items="model.data"
+            />
+        </Layout>
+    </t>
+</templates>
