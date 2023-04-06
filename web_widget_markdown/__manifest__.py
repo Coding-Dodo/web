@@ -22,8 +22,10 @@
         "web.assets_qweb": [
             "/web_widget_markdown/static/src/xml/qweb_template.xml",
         ],
-        "web.qunit_suite_tests": [
+        "web.tests_assets": [
             "/web_widget_markdown/static/lib/simplemde.min.js",
+        ],
+        "web.qunit_suite_tests": [
             "/web_widget_markdown/static/tests/**/*",
         ],
     },
