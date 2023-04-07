@@ -103,12 +103,12 @@ QUnit.module("web_widget_markdown", (hooks) => {
         assert.ok(textarea, "should have a text area");
         assert.strictEqual(textarea.value, initMarkdownValue, "should still be '# Hello world' in edit");
         assert.strictEqual(
-            markdownField.component.simplemde.value(),
+            markdownField.component.easymde.value(),
             initMarkdownValue,
-            "simpleMde should have correct value"
+            "easymde should have correct value"
         );
 
-        markdownField.component.simplemde.value("**bold content**");
+        markdownField.component.easymde.value("**bold content**");
         markdownField.component.commitChanges();
     });
 });

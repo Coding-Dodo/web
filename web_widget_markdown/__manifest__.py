@@ -8,7 +8,7 @@
     "author": "Coding Dodo",
     "website": "https://github.com/Coding-Dodo/web",
     "category": "web",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.1.0",
     "license": "AGPL-3",
     "depends": ["base", "web"],
     "data": [],
@@ -17,13 +17,14 @@
         "web.assets_backend": [
             "/web_widget_markdown/static/src/js/markdown_field.js",
             "/web_widget_markdown/static/src/js/markdown_field.xml",
-            "/web_widget_markdown/static/lib/simplemde.min.css",
+            "/web_widget_markdown/static/lib/easymde.min.css",
         ],
         "web.assets_qweb": [
             "/web_widget_markdown/static/src/xml/qweb_template.xml",
         ],
         "web.tests_assets": [
-            "/web_widget_markdown/static/lib/simplemde.min.js",
+            "/web_widget_markdown/static/lib/easymde.min.js",
+            "/web_widget_markdown/static/lib/marked.min.js",
         ],
         "web.qunit_suite_tests": [
             "/web_widget_markdown/static/tests/**/*",

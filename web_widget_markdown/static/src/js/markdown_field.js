@@ -12,11 +12,12 @@ export class MarkdownField extends Component {
         super.setup();
         this.textareaRef = useRef("textarea");
         onWillStart(async () => {
-            await loadJS("/web_widget_markdown/static/lib/simplemde.min.js");
+            await loadJS("/web_widget_markdown/static/lib/easymde.min.js");
+            await loadJS("/web_widget_markdown/static/lib/marked.min.js");
         });
         onMounted(() => {
             if (!this.props.readonly) {
-                this._startSimpleMDE();
+                this._startEasyMDE();
             }
         });
 
@@ -29,7 +30,7 @@ export class MarkdownField extends Component {
 
         onWillUpdateProps((newProps) => {
             if (newProps.readonly !== this.props.readonly && !newProps.readonly) {
-                this._startSimpleMDE(newProps.value);
+                this._startEasyMDE(newProps.value);
             }
         });
     }
@@ -37,28 +38,33 @@ export class MarkdownField extends Component {
     /**
      * @param {String} [initValue]
      */
-    _startSimpleMDE(initValue) {
-        var simplemdeConfig = {
+    _startEasyMDE(initValue) {
+        var easymdeConfig = {
             element: this.textareaRef.el,
             initialValue: initValue ?? this.props.value,
             uniqueId: `markdown-${this.props.id}`,
         };
         if (this.props.editorOptions) {
-            simplemdeConfig = {...simplemdeConfig, ...this.props.editorOptions};
+            easymdeConfig = {...easymdeConfig, ...this.props.editorOptions};
         }
-        this.simplemde = new SimpleMDE(simplemdeConfig);
-        this.simplemde.codemirror.on("blur", this.commitChanges.bind(this));
-        this.simplemde.codemirror.on("change", debounce(this.commitChanges.bind(this), 1000));
+        this.easymde = new EasyMDE(easymdeConfig); // eslint-disable-line no-undef
+        this.easymde.codemirror.on("blur", this.commitChanges.bind(this));
+        this.easymde.codemirror.on("change", debounce(this.commitChanges.bind(this), 1000));
     }
 
     get markupValue() {
-        // @ts-ignore
-        return markup(SimpleMDE.prototype.markdown(this.props.value));
+        var value = this.props.value;
+        // Use the "marked" lib to convert.
+        if (marked) { // eslint-disable-line no-undef
+            value = marked.marked(value); // eslint-disable-line no-undef
+        }
+        // Wrap within "markup" to say this is raw HTML.
+        return markup(value);
     }
 
     getEditorValue() {
-        if (this.simplemde) {
-            return this.simplemde.value();
+        if (this.easymde) {
+            return this.easymde.value();
         }
         return null;
     }
